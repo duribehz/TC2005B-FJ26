@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Holaaa, mi nombre es Darío</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información">
+    </head>
+
+    <body>
+        <header>
+            <h2>Helloo, mi nombre es Darío!!</h2>
+            <nav>
+                <a href="#Sobre-mi">Sobre mi</a>
+                <a href="#Mis-perritos">Mis perritos</a>
+                <a href="#Preguntas">Preguntas del Lab</a>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <img src="./img/img-miFoto.jpeg" alt="Mi Foto" width="200">
+                <h1 id="Sobre-mi">¿Quién soy?</h1>
+                <p>Mi nombre es Darío. <br>
+                Entre mis intereses, me gusta mencionar el fútbol, <strong>arribas las chivas</strong>; siendo año mundialista, estoy muy emocionado. También puedo pasar horas escuchando música o terminar una serie en un solo día. La lectura es otro de mis pasatiempos, aunque la he descuidado un poco en los últimos años, y disfruto muchísimo ir al cine. Tengo tres perritos que son mi adoracion 
+                </p>
+            </section>
+
+            <section>
+                <h1 id="Mis-perritos">Les presento a mis perritos</h1>
+                <img src="./img/img-Zoe.jpeg" alt="Zoe" width="150">
+                <img src="./img/img-Owen.jpeg" alt="Owen" width="150">
+                <img src="./img/img-Bailey.jpeg" alt="Bailey" width="150">
+            </section>
+
+            <section>
+                <h3 id="Preguntas">Preguntas del Laboratorio 1</h3>
+                <strong>¿Cuál es la diferencia entre Internet y la World Wide Web?</strong><br>
+                <p>
+                    Internet es la infraestructura, minetras que la Web es un servicio que corre en internet.
+                </p>
+
+                <strong>¿Cuáles son las partes de un URL?</strong><br>
+                <img src="" alt="">
+
+                <strong>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong><br>
+                <ul>
+                    <li>
+                        GET: Se utiliza para obtener y consultar datos del servidor. <br>
+                    </li>
+                    <li>
+                        HEAD: Este es parecido al GET, pero las respuestas tienen encabezados y cuerpos, la diferencia con el GET es que el HEAD solo devuelve devuelve los encabezados.
+                    </li>
+                    <li>
+                        POST: Para enviar datos al servidor.
+                    </li>
+                    <li>
+                        PUT: Se usa para actualizar o reemplazar un recurso y si el recurso no existe lo crea. 
+                    </li>
+                    <li>
+                        PATCH: Tambien funciona para actualizar un recurso pero no por completo, solo parcialmente.
+                    </li>
+                    <li>
+                        DELETE: Para eliminar un recurso.
+                    </li>
+                </ul>
+
+                <strong>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong><br>
+                <p>
+                    El método POST porque envia la información dentro del cuerpo del menaje HTTP. <br>
+                    "Los datos enviados a través de POST no son visibles en la URL. Si se utilizara GET para una contraseña, esta quedaría expuesta en el historial del navegador, en los registros del servidor (logs) y para cualquier persona que mire la pantalla del usuario" (Mozilla MDN, 2023).
+                </p>
+
+                <strong>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL? </strong><br>
+                <p>
+                    EL método utilizado es el GET, porque este sirve para pedir la representeción de un recurso.
+                    "El método HTTP GET solicita una representación de un recurso específico. Las peticiones que utilizan GET solo deben recuperar datos" (Mozilla MDN, 2023).
+                </p>
+
+                <strong>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</strong><br>
+                <p>
+                    Cuando un servidor web devuelve un código 200, significa que todo bien, significa que todo OK, recibio y proceso correctamente la solicitud del navegador. No ocurrio ningún error todo salio exitosamente.
+                </p>
+
+                <strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong><br>
+                <p>
+                    Tecnicamente no ya que un código 404 es un error cliente, significa que no puede encontrar el recurso solicitado, pero la causa puede ser provocada por un fallo en la gestión del sitio.
+                    <br><br>
+                    "Un error 404 no indica si el recurso falta de forma temporal o permanente. Sin embargo, los enlaces que conducen a un error 404 suelen conocerse como 'enlaces rotos' o 'muertos' y están sujetos a la pudrición del enlace (link rot)" (Mozilla MDN, 2023).
+                </p>
+                
+                <strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong><br>
+                <p>
+                    Si es responsabilidad del desarrollador. El código 500 nos dice que el servidor encontró una condición inesperada que no lo dejo completar la solicitud.
+                    "El código de estado 500 indica que el servidor encontró una condición inesperada que le impidió cumplir con la solicitud. Es la respuesta por defecto cuando el servidor no puede encontrar un código de error 5xx más específico" (IETF, 2014).
+                </p>
+                
+                <strong>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</strong><br>
+                <p>
+                    "Un elemento o atributo desaprobado es aquel que ha sido reemplazado por otros mecanismos (generalmente CSS) o que se considera perjudicial para la accesibilidad y la separación de conceptos. Aunque los navegadores suelen seguir soportándolos por compatibilidad con sitios antiguos, no deben usarse en desarrollos nuevos" (W3C, 2021).
+                </p>
+                <ul>
+                    <li>"center/center"</li>
+                    <li>"font/font"</li>
+                    <li>"strike/strike"</li>
+                    <li>"big/big"</li>
+                </ul>
+
+                <strong>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong><br>
+                <p>
+                    HTML 4 usaba muchísimo la etiqueta div y con los identificadores id, para definir la estructura de la página, es decir en ves en lugar de usar la etiqueta header, usaban una div id = "header". HTML 5 usa las etiquetas semánticas, que son las etiquetas que usamos ahora como el header, nav, footer, etc. 
+                    <br><br>
+                    "La semántica de HTML5 permite que las máquinas comprendan la estructura del contenido, mejorando la accesibilidad y el SEO al diferenciar claramente el encabezado, el pie de página y el contenido principal" (W3C, 2014).
+                    <br><br>
+                    En HTML 4 para poder utilizar audio o un video utilizabas un servicio externo y HTML5 ya tiene sus etiquetas de audio y video lo cual lo hace más practico.HTML 5 mejoró también mucho la parte de gráficos dinámicos ya que HTML 4 era muy limitado en esa parte.
+                    <br><br>
+                    HTML 5 tiene otras opciones de almacenamiento, Web Storage(localStorage y sessionStorage), esto permite guardar 5MB o 10MB de datos en el cliente sin afectar el rendimiento de la red, a diferencia de HMTL 4 que relentizaba la carga utilizaba principalmente las cookies para guardar datos en el navegador y estaban limitados a 4KB y se enviaban con cada petición HTTP. 
+                    <br><br>
+                    Para declarar una archivo HTML 4 utilzaba una referencia enorme a un DTD, mientras que HTML 5 solo usa una linea. 
+                    <br><br>
+                    Una de las mejores cosas de HTML 5 es su soporte al conjunto de APIs. <br>
+                    "HTML5 no es solo una actualización del lenguaje, sino un conjunto de tecnologías que incluyen CSS3 y nuevas APIs de JavaScript que permiten crear aplicaciones web ricas que compiten con las aplicaciones nativas" (Mozilla MDN, 2023).
+                </p>
+                
+                <strong>¿Qué componentes de estructura y estilo tiene una tabla?</strong><br>
+                <p>
+                    "Para estructurar una tabla de forma profesional, debes utilizar una jerarquía semántica en HTML que separe el contenido en tres secciones principales: el encabezado (<thead>), el cuerpo de datos (<tbody>) y el pie de tabla (<tfoot>). Dentro de estas, las filas se definen con <tr>, diferenciando claramente las celdas de título (<th>) de las celdas de datos comunes (<td>), lo cual es fundamental para la accesibilidad y el SEO (W3C, 2023)."
+                    <br>
+                    En cuanto al estilo, la presentación se gestiona mediante CSS para transformar la estructura básica en una interfaz legible. Los componentes esenciales incluyen la propiedad border-collapse para unificar los bordes, el uso de padding para dar aire al texto y la aplicación de selectores como :nth-child para crear filas de colores alternos (efecto cebra), lo que facilita el seguimiento visual de la información (Mozilla MDN, 2023).
+                </p>
+
+                <strong>¿Cuáles son los principales controles de una forma HTML5?</strong><br>
+                <ul>
+                    <li>Campos de texto: <input type="text"> (input) Es la clasica cajita para ingresar texto, pero se puede modificar su atributo type para tener diferentes funcionalidades, como validar que solo se ingresen correo electronicos o para no mostrar el texto cuando ingresas una password, validar que solo se esta ingresando texto, etc.</li>
+                    <li>
+                        Selección de opciones: <input type="radio"> Existen los radios buttons para elegir sola una opción de varias y los checkboxes <input type="checkbox"> para elegir varias opciones.
+                    </li>
+                    <li>
+                        Listas despegables: <select></select> Es para elegir un elementos o varios de una lista, en lugar de una uno de seleccion, con las listas despegables se ahorra espacion en pantalla.
+                    </li>
+                    <li>
+                        Controles de fecha y Color: <input type="date"><input type="color"> Despliegan calendarios o paletas. Son selectores nativos de HTML5
+                    </li>
+                    <li>
+                        Áreas de texto extenso: <textarea></textarea> Son como los campos de texto, solo que se utilizan cuando se necesita un texto extenso.
+                    </li>
+                    <li>
+                        Botones de acción: <button type="submit">Submit</button><button type="reset">Reset</button> Se puede cambiar su atributo type depende la función que necesitemos, existe el submit que funciona para ennviar un formulario o el reset para limpiar algún campo.
+                    </li>
+                </ul>
+                
+                <strong>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/ (Al responder la pregunta recuerda poner el navegador que utilizas)</strong><br>
+                <p>
+                    Yo utilizo Mozilla Firefox
+                </p>
+                <img src="./img/img-Score.png" alt="Score HMTL5" width="350">
+                <br><br>
+                
+                <strong>Sobre el ciclo de vida y desarrollo de los sistemas de información:</strong><br>
+                <strong>¿Cuál es el ciclo de vida de los sistemas de información?</strong><br>
+                <p>
+                    Según Laudon & Laudon (2021), las etapas principales son:
+                </p>
+                <ol>
+                    <li>
+                        Nacimiento y Planificación: Identificación de una necesidad o problema organizacional y determinación de la viabilidad.
+                    </li>
+                    <li>
+                        Desarrollo: Creación técnica del sistema (aquí es donde entra el ciclo de desarrollo).
+                    </li>
+                    <li>
+                        Operación: El sistema está en uso productivo procesando transacciones y generando informes.
+                    </li>
+                    <li>
+                        Mantenimiento: Corrección de errores y adaptación a nuevos requerimientos.
+                    </li>
+                    <li>
+                        Muerte o Eliminación: El sistema se vuelve obsoleto y es reemplazado o desactivado.
+                    </li>
+                    <img src="./img/img-CicloDeVida.jpeg" alt="Ciclo de Vida" width="350">
+                </ol>
+                <strong>¿Cuál es el ciclo de desarrollo de sistemas de información? </strong><br>
+                <p>
+                    De acuerdo con Kendall & Kendall (2014), el ciclo de desarrollo estándar (modelo en cascada) consta de las siguientes fases:
+                </p>
+                <ol>
+                    <li>
+                        Identificación de problemas y oportunidades: Entender qué debe resolver el software.
+                    </li>
+                    <li>
+                        Determinación de los requerimientos de información: Entrevistas y recolección de datos con los usuarios finales.
+                    </li>
+                    <li>
+                        Análisis de las necesidades del sistema: Creación de diagramas de flujo de datos y diccionarios de datos.
+                    </li>
+                    <li>
+                        Diseño del sistema: Diseño de la interfaz, la base de datos y la arquitectura lógica.
+                    </li>
+                    <li>
+                        Desarrollo y documentación del software: Fase de programación (codificación).
+                    </li>
+                    <li>
+                        Pruebas y mantenimiento del sistema: Verificación de que el código no tenga errores.
+                    </li>
+                    <li>
+                        Implementación y evaluación: Instalación del sistema y capacitación a los usuarios.
+                    </li>
+                </ol>
+                <img src="./img/img-CicloDeDesarrollo.png" alt="Ciclo de Desarrollo" width="350">
+            </section>
+        </main>
+        <footer>
+            <header>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-vscode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 3v18l4 -2.5v-13l-4 -2.5" /><path d="M9.165 13.903l-4.165 3.597l-2 -1l4.333 -4.5m1.735 -1.802l6.932 -7.198v5l-4.795 4.141" /><path d="M16 16.5l-11 -10l-2 1l13 13.5" /></svg>
+                <h2>Visual Studio Code</h2>
+                <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>
+            </header>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-briefcase"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 13.478v4.522a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3 -3v-4.522l.553 .277a20.999 20.999 0 0 0 18.897 -.002l.55 -.275zm-8 -11.478a3 3 0 0 1 3 3v1h2a3 3 0 0 1 3 3v2.242l-1.447 .724a19.002 19.002 0 0 1 -16.726 .186l-.647 -.32l-1.18 -.59v-2.242a3 3 0 0 1 3 -3h2v-1a3 3 0 0 1 3 -3h4zm-2 8a1 1 0 0 0 -1 1a1 1 0 1 0 2 .01c0 -.562 -.448 -1.01 -1 -1.01zm2 -6h-4a1 1 0 0 0 -1 1v1h6v-1a1 1 0 0 0 -1 -1z" /></svg>
+
+            <h4>A01713776</h4>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" /><path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" /></svg> 
+
+            <a href="">A01713776@tec.mx</a>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg>
+
+            <a href="https://github.com/DarioAUrb">DarioAUrb</a>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" /></svg>
+
+            <a href="https://www.linkedin.com/in/dar%C3%ADo-a-uribe?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Darío A. Uribe</a>
+        </footer>
+    </body>
+</html>
