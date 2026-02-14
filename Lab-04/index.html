@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB 04</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <main>
+            <h1>Lab 04</h1>
+            <strong>
+                Entrada: un número pedido con un prompt. Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir la salida 
+            </strong><br>
+            <button id="script-01">Da click aqui para probar</button><br><br>
+            
+            <strong>
+                Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria. Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir la respuesta. 
+            </strong><br>
+            <button id="script-02">Da click aqui para probar</button><br><br>
+
+            <strong>
+                Función: contador. Parámetros: Un arreglo de números. Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.
+            </strong><br>
+            <button id="script-03">Da click aqui para probar</button><br><br>
+
+            <strong>
+                Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.
+            </strong><br>
+            <button id="script-04">Da click aqui para probar</button><br><br>
+            <div id="resultado-04"></div>
+
+            <strong>
+                Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.
+            </strong>
+            <button id="script-05">Da click aqui para probar</button>
+            <div id="resultado-05"></div><br><br>
+            <strong>
+                Crea una solución para un problema de tu elección (puede ser algo relacionado con tus intereses, alguna problemática que hayas identificado en algún ámbito, un problema de programación que hayas resuelto en otro lenguaje, un problema de la ACM, entre otros). El problema debe estar descrito en un documento HTML, y la solución implementada en JavaScript, utilizando al menos la creación de un objeto, el objeto además de su constructor deben tener al menos 2 métodos. Muestra los resultados en el documento HTML.
+            </strong><br><br>
+            <strong>
+                Rendimiento de las Cajitas de NU: Calcular cuánto dinero genera diariamente y proyectar tu ahorro a corto plazo. 
+            </strong>
+            <div>
+                <label>Monto en la Cajita ($):</label>
+                <input type="number" id="capital-nu" value="1000"><br><br>
+                <label>Tasa Anual Nu (%):</label>
+                <input type="number" id="tasa-nu" value="15"><br><br>
+                <label>Días a proyectar:</label>
+                <input type="number" id="dias-nu" value="30"><br><br>
+                <button id="rendimiento-nu">Calcular Rendimiento</button>
+                <div id="resultado-nu" class="resultado"></div>
+            </div>
+            <br><br>
+            
+            <h2>Preguntas a responder</h2>
+            <strong>
+                ¿Qué diferencias y semejanzas hay entre Java y JavaScript?
+            </strong><br>
+            <p>
+                Semejanzas? Yo creo que solo el nombre, pero bueno los dos se puede usar POO aunque se maneje diferente, tienen una sintaxis estilo tipo C, tambien corre del lado de servidor con spring y node. <br>
+                A JavaScript solo le pusieron ese nombre porque cuando salio Java era muy popular y para que lo usaran mas personas le pusieron asi. Pero pues son muy diferentes, Java es tipado y JavaScript no, JavaScript es interpretado y Java compilado, etc.  
+            </p> <br><br>
+            <strong>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</strong><br>
+            <ul>
+                <li>Date.now()</li>
+                <li>getFullYear()</li>
+                <li>getMonth()</li>
+                <li>getDay()</li>
+                <li>toISOString()</li>
+            </ul><br><br>
+            <strong>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</strong><br>
+            <ul>
+                <li>push()</li>
+                <li>pop()</li>
+                <li>map()</li>
+                <li>filter()</li>
+                <li>forEach()</li>
+            </ul><br><br>
+            <strong>¿Cómo se declara una variable con alcance local dentro de una función?</strong><br>
+            <p>
+                Con let. En JavaScript actual se ocupa let y solo vive dentro de las llaves.
+            </p><br><br>
+            <strong>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</strong><br>
+            <p>
+                En un un tutorial de JS decia que era un pecado capital, porque puede provocar colisiones por tener dos variables con el mismo nombre y si el codifo tiene un error va ser muy dificil indentificarlo.
+            </p>
+        </main>
+        <script src="./js/script.js"></script>
+    </body>
+</html>
