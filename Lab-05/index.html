@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Holaaa, mi nombre es Darío</title>
+    <meta name="description" content="Lab 5: Frameworks de estilo">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title">Helloo, mi nombre es Darío!!</h2>
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="#Sobre-mi" class="has-text-white">Sobre mi</a></li>
+                        <li><a href="#Mis-perritos" class="has-text-white">Mis perritos</a></li>
+                        <li><a href="#Preguntas" class="has-text-white">Preguntas del Lab</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <main class="container is-max-desktop p-5">
+        <section class="box mt-5 has-background-dark has-text-white"> 
+            <div class="columns is-vcentered">
+                <div class="column is-one-quarter-desktop is-one-third-tablet has-text-centered">
+                    <figure class="image is-128x128 is-inline-block">
+                        <img src="./img/img-miFoto.jpeg" alt="Mi Foto" class="is-rounded" style="object-fit: cover; height: 100%;">
+                    </figure>
+                </div>
+
+            <div class="column">
+                <h1 id="Sobre-mi" class="title is-2 has-text-white">¿Quién soy?</h1>
+                <div class="content">
+                    <p>
+                        Mi nombre es Darío. <br>
+                        Entre mis intereses, me gusta mencionar el fútbol, 
+                        <strong class="has-text-danger">¡arriba las chivas!</strong>; 
+                        siendo año mundialista, estoy muy emocionado. También puedo pasar 
+                        horas escuchando música o terminar una serie en un solo día. 
+                        La lectura es otro de mis pasatiempos y disfruto muchísimo ir al cine. 
+                        Tengo tres perritos que son mi adoración.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-6">
+            <h2 id="Mis-perritos" class="title is-4 has-text-centered">Les presento a mis perritos</h2>
+            <div class="columns is-mobile is-multiline is-centered">
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by5">
+                                <img src="./img/img-Zoe.jpeg" alt="Zoe">
+                            </figure>
+                        </div>
+                        <div class="card-content has-text-centered p-2">
+                            <p class="subtitle is-6">Zoe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by5">
+                                <img src="./img/img-Owen.jpeg" alt="Owen">
+                            </figure>
+                        </div>
+                        <div class="card-content has-text-centered p-2">
+                            <p class="subtitle is-6">Owen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by5">
+                                <img src="./img/img-Bailey.jpeg" alt="Bailey">
+                            </figure>
+                        </div>
+                        <div class="card-content has-text-centered p-2">
+                            <p class="subtitle is-6">Bailey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="message is-dark mt-6">
+            <div class="message-header">
+                <p id="Preguntas">Preguntas del Laboratorio 5</p>
+            </div>
+            <div class="message-body">
+                <strong>Describe Material Design:</strong>
+                <p>"Material Design es una guía integral para el diseño visual, de movimiento y de interacción en distintas plataformas y dispositivos." <br>
+                Es un sistema creado por google y se introdujo en 2014, que basicamente es una guia de los principios, componentes y guias visuales para construir interfaces didgitales<br><br>
+                Principios clave: 
+                <ul>
+                    <li>
+                        Material como metáfora: Uso de capas, elevación y sombras, sensación de espacio y jerarquía visual.
+                    </li>
+                    <li>
+                        Diseño audaz y gráfico: Colores fuertes, tipografía clara, uso intencional del espacio.
+                    </li>
+                    <li>
+                        Movimiento significativo: Animaciones que explican lo que sucede, transiciones suaves entre estados.
+                    </li>
+                </ul>
+                <br>
+                <a href="https://developer.android.com/develop/ui/views/theming/look-and-feel?hl=es-419"> Material Design para Android
+                </a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer mt-6">
+        <div class="container content has-text-centered">
+            <div class="block">
+                <span class="icon is-large has-text-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 3v18l4 -2.5v-13l-4 -2.5" /><path d="M9.165 13.903l-4.165 3.597l-2 -1l4.333 -4.5m1.735 -1.802l6.932 -7.198v5l-4.795 4.141" /><path d="M16 16.5l-11 -10l-2 1l13 13.5" /></svg>
+                </span>
+                <h2 class="subtitle mb-2">Visual Studio Code</h2>
+                <a href="https://code.visualstudio.com/" class="button is-small is-link is-outlined">Visitar Sitio</a>
+            </div>
+
+            <hr>
+
+            <div class="level">
+                <div class="level-item">
+                    <span class="icon-text">
+                        <span class="icon has-text-grey">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 13.478v4.522a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3 -3v-4.522l.553 .277a20.999 20.999 0 0 0 18.897 -.002l.55 -.275zm-8 -11.478a3 3 0 0 1 3 3v1h2a3 3 0 0 1 3 3v2.242l-1.447 .724a19.002 19.002 0 0 1 -16.726 .186l-.647 -.32l-1.18 -.59v-2.242a3 3 0 0 1 3 -3h2v-1a3 3 0 0 1 3 -3h4zm-2 8a1 1 0 0 0 -1 1a1 1 0 1 0 2 .01c0 -.562 -.448 -1.01 -1 -1.01zm2 -6h-4a1 1 0 0 0 -1 1v1h6v-1a1 1 0 0 0 -1 -1z" /></svg>
+                        </span>
+                        <span>A01713776</span>
+                    </span>
+                </div>
+
+                <div class="level-item">
+                    <a href="mailto:A01713776@tec.mx" class="icon-text has-text-dark">
+                        <span class="icon has-text-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" /><path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" /></svg>
+                        </span>
+                        <span>A01713776@tec.mx</span>
+                    </a>
+                </div>
+
+                <div class="level-item">
+                    <a href="https://github.com/DarioAUrb" class="icon-text has-text-dark">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg>
+                        </span>
+                        <span>DarioAUrb</span>
+                    </a>
+                </div>
+
+                <div class="level-item">
+                    <a href="https://www.linkedin.com/..." class="icon-text has-text-dark">
+                        <span class="icon has-text-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" /></svg>
+                        </span>
+                        <span>Darío A. Uribe</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
