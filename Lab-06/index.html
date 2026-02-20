@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Password Validator</title>
-    </head>
-    <body>
-        <h1>Password Validator</h1>
-        <h3>Ingresa su password y descubre que tan segura es</h3>
-        <input type="text"> <br><br>
-        <input type="button" value="VERIFICAR">
-    </body>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Validator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop">
+                        
+                        <div class="box has-text-centered p-6">
+                            <span class="icon is-large has-text-primary mb-4">
+                                <i class="fas fa-shield-halved fa-3x"></i>
+                            </span>
+
+                            <h1 class="title is-3">Password Validator</h1>
+                            <p class="subtitle is-6 has-text-grey">
+                                ¿Tu password es segura?<br>
+                                Ingrésala y verifícala ahora.
+                            </p>
+
+                            <hr>
+
+                            <div class="field">
+                                <label class="label has-text-left">Tu contraseña</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input is-medium is-rounded" type="text" placeholder="Ej: P@ssw0rd123!">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <span class="icon is-small is-right">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                </div>
+                                <p class="help has-text-left">Usa mayúsculas, minúsculas, números y símbolos.</p>
+                            </div>
+
+                            <div class="field mt-5">
+                                <button class="button is-success is-medium is-fullwidth is-rounded">
+                                    <span>VERIFICAR</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
