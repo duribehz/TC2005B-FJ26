@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/DarioAUrb/TC2005B-FJ26#readme",
   "dependencies": {
+    "body-parser": "^2.2.2",
     "express": "^5.2.1"
   }
 }
