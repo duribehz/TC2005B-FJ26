@@ -1,0 +1,28 @@
+{
+  "name": "tc2005b-fj26",
+  "version": "1.0.0",
+  "description": "Labs TC2005B",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarioAUrb/TC2005B-FJ26.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "js"
+  ],
+  "author": "Darío A. Uribe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DarioAUrb/TC2005B-FJ26/issues"
+  },
+  "homepage": "https://github.com/DarioAUrb/TC2005B-FJ26#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
