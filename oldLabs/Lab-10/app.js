@@ -1,22 +1,42 @@
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-const songs = [
-    {   
-        name: "Good Morning",
-        artist: "Kanye West",
-        link: "https://open.spotify.com/track/6MXXY2eiWkpDCezVCc0cMH?si=8b677ba34ad143ef", 
-    },
-    {
-        name: "Donde Estas Corazon",
-        artist: "Shakira",
-        link: "https://open.spotify.com/track/6IGvaQ4aFBjy66TdUurIiA?si=5cceadb7edca4d65",
-    },
-    {
-        name: "vivo si me exiges",
-        artist: "LATIN MAFIA",
-        link: "https://open.spotify.com/track/1rT3ZQcsqcdjBnR5AcaubL?si=53ea0c58fc884590",
-    },
-]
+const songsFile = path.join(__dirname, 'songs.txt');
+let songs = [];
+
+
+// const songs = [
+//     {   
+//         name: "Good Morning",
+//         artist: "Kanye West",
+//         link: "https://open.spotify.com/track/6MXXY2eiWkpDCezVCc0cMH?si=8b677ba34ad143ef", 
+//     },
+//     {
+//         name: "Donde Estas Corazon",
+//         artist: "Shakira",
+//         link: "https://open.spotify.com/track/6IGvaQ4aFBjy66TdUurIiA?si=5cceadb7edca4d65",
+//     },
+//     {
+//         name: "vivo si me exiges",
+//         artist: "LATIN MAFIA",
+//         link: "https://open.spotify.com/track/1rT3ZQcsqcdjBnR5AcaubL?si=53ea0c58fc884590",
+//     },
+// ]
+
+if (fs.existsSync(songsFile)) {
+    const data = fs.readFileSync(songsFile, 'utf-8');
+    const lines = data.split('\n').filter(line => line.trim() !== '');
+    for (let line of lines) {
+        const [name, artist, link] = line.split('|');
+        songs.push({ name, artist, link });
+    }
+}
+
+function saveSong(song) {
+    const line = `${song.name}|${song.artist}|${song.link}\n`;
+    fs.appendFileSync(songsFile, line);
+}
 
 const html_form = `
     <h2 class="title is-4">Agregar nueva canción</h2>
@@ -91,9 +111,9 @@ const server = http.createServer((request, response) => {
         html_index +=
             `<div class="column is-one-third">
                 <div class="box">
-                    <h3 class="title is-5">${song.name}</h3>
-                    <p><strong>Artista:</strong> ${song.artist}</p>
-                    <a href="${song.link}" target="_blank" class="button is-small is-success mt-2">
+                    <h3 class="title is-5">${decodeURIComponent(song.name)}</h3>
+                    <p><strong>Artista:</strong>${decodeURIComponent(song.artist)}</p>
+                    <a href="${decodeURIComponent(song.link)}" target="_blank" class="button is-small is-success mt-2">
                         Escuchar en Spotify
                     </a>
                 </div>
@@ -120,16 +140,19 @@ const server = http.createServer((request, response) => {
         });
 
         request.on('end',() => {
-            const stringFullData = Buffer.concat(fullData).toString();
+            const stringFullData = new URLSearchParams(Buffer.concat(fullData).toString());
             console.log(stringFullData);
-            songs.push({
-                name: stringFullData.split('&')[0].split('=')[1],
-                artist: stringFullData.split('&')[1].split('=')[1],
-                link: stringFullData.split('&')[2].split('=')[1],
-            });
-            
-            response.end();
 
+            const newSong = {
+                name: stringFullData.get('nombre'),
+                artist: stringFullData.get('artista'),
+                link: stringFullData.get('link'),
+            };
+
+            songs.push(newSong);
+            saveSong(newSong);
+
+            response.end();
         });
 
     }else{
