@@ -23,5 +23,5 @@ app.use((request, response) => {
 });
 
 app.listen(4000, () => {
-    console.log("Servidor corriendo en http://localhost:4000/musica");
+    console.log("Servidor corriendo en http://localhost:4000");
 });
