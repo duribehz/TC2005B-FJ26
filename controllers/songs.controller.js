@@ -1,21 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const router = require('../routes/songs.routes');
 
-const archivoDatos = path.join(__dirname, 'songs.txt');
-
-function leerMusica() {
-    try {
-        if (!fs.existsSync(archivoDatos)) return [];
-        const contenido = fs.readFileSync(archivoDatos, 'utf-8');
-        return contenido.split('\n').filter(line => line.trim() !== '');
-    } catch (err) {
-        return [];
-    }
-}
+const Song = require('../models/songs.model')
 
 exports.get_lista = (req, res) => {
-    const lista = leerMusica();
+    const lista = Song.leerMusica();
     res.render('list', { 
         página: 'Mi Playlist',
         canciones: lista 
@@ -31,11 +18,10 @@ exports.get_new = (req, res) => {
     });
 }
 
-
 exports.post_new = (req, res) => {
     const titulo = req.body.titulo;
     if (titulo) {
-        fs.appendFileSync(archivoDatos, titulo + '\n');
+        Song.guardarSong(titulo);
         res.redirect('/musica/gracias');
     } else {
         res.redirect('/musica/new');
@@ -43,7 +29,7 @@ exports.post_new = (req, res) => {
 }
 
 exports.get_detalle = (req, res) => {
-    const lista = leerMusica();
+    const lista = Song.leerMusica();
     const cancion = lista[req.params.index];
     res.render('new', {
         página: cancion ? `Canción: ${cancion}` : 'No encontrada',
