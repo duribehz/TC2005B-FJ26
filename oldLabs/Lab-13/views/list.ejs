@@ -1,0 +1,20 @@
+<%- include('includes/_header.ejs') %>
+
+<main>
+    <h2>Mi Lista de Música Guardada</h2>
+
+    <% if (canciones.length > 0) { %>
+        <ul>
+            <% canciones.forEach((cancion, index) => { %>
+                <li>
+                    <%= cancion %>
+                    - <a href="/musica/detalle/<%= index %>">ver detalles</a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No hay canciones en tu lista todavía. ¡<a href="/musica/new">Añade una</a>!</p>
+    <% } %>
+</main>
+
+<%- include('includes/_footer.ejs') %>
