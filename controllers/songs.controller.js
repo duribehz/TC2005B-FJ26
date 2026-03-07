@@ -11,7 +11,7 @@ exports.get_lista = (req, res) => {
 
 exports.get_new = (req, res) => {
     res.render('new', {
-        página: 'Registrar Canción',
+        pagina: 'Registrar Canción',
         detalles: false,
         agradecimiento: false,
         error: false

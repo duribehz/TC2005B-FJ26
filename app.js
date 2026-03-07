@@ -9,8 +9,10 @@ app.set('views', 'views');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const rutasMusica = require('./routes/songs.routes');
+const rutasUsers = require('./routes/user.routes')
+app.use('/user', rutasUsers);
 
+const rutasMusica = require('./routes/songs.routes');
 app.use('/musica', rutasMusica);
 
 app.use((request, response) => {
@@ -23,5 +25,5 @@ app.use((request, response) => {
 });
 
 app.listen(4000, () => {
-    console.log("Servidor corriendo en http://localhost:4000/musica");
+    console.log("Servidor corriendo en http://localhost:4000/user/login");
 });
