@@ -4,9 +4,10 @@ const Song = require('../models/songs.model')
 exports.get_lista = (req, res) => {
     const lista = Song.leerMusica();
     res.render('list', { 
-        página: 'Mi Playlist',
+        pagina: 'Mi Playlist',
         canciones: lista 
     });
+    console.log(req.session.username)
 }
 
 exports.get_new = (req, res) => {
@@ -32,7 +33,7 @@ exports.get_detalle = (req, res) => {
     const lista = Song.leerMusica();
     const cancion = lista[req.params.index];
     res.render('new', {
-        página: cancion ? `Canción: ${cancion}` : 'No encontrada',
+        pagina: cancion ? `Canción: ${cancion}` : 'No encontrada',
         detalles: true,
         agradecimiento: false,
         error: !cancion
@@ -41,7 +42,7 @@ exports.get_detalle = (req, res) => {
 
 exports.get_gracias = (req, res) => {
     res.render('new', {
-        página: '¡Guardado con éxito!',
+        pagina: '¡Guardado con éxito!',
         agradecimiento: true,
         detalles: false,
         error: false
