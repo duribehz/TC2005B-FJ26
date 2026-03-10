@@ -1,7 +1,8 @@
 
 const Song = require('../models/songs.model')
+const Genre = require('../models/genre.model')
 
-exports.get_lista = (req, res, next) => {
+exports.get_list = (req, res, next) => {
     Song.fetchAll().then(([rows, fieldData]) => {
         return res.render ('list', 
             {
@@ -14,26 +15,36 @@ exports.get_lista = (req, res, next) => {
     });
 }
 
-exports.get_new = (req, res) => {
-    res.render('new', {
-        pagina: 'Registrar Canción',
-        detalles: false,
-        agradecimiento: false,
-        error: false
-    });
+exports.get_new = (req, res, next) => {
+Genre.fetchAll().then(([rows, fieldData]) => {
+    console.log(rows)
+    return res.render ('form',
+        {
+            pagina: 'Agregar canciones',
+            genres: rows
+        });
+}).catch ((error) => {
+    next(error);
+    console.log(error);
+});
 }
 
-exports.post_new = (req, res) => {
-    const titulo = req.body.titulo;
-    if (titulo) {
-        Song.guardarSong(titulo);
-        res.redirect('/musica/gracias');
-    } else {
-        res.redirect('/musica/new');
-    }
+exports.post_new = (req, res) => {    
+    const song = new Song(
+        req.body.title,
+        req.body.artist,
+        req.body.link,
+        req.body.genre_id
+    )
+    song.save().then(() => {
+        return res.redirect('/song/thanks');
+    }).catch((error) => {
+        next(error);
+        console.log(error);
+    })
 }
 
-exports.get_detalle = (req, res, next) => {
+exports.get_detail = (req, res, next) => {
     const id = (req.params.index) + 1;
     console.log('ID recibido:', id);
     Song.findById(id)
@@ -52,7 +63,7 @@ exports.get_detalle = (req, res, next) => {
     });
 }
 
-exports.get_gracias = (req, res) => {
+exports.get_thanks = (req, res) => {
     res.render('new', {
         pagina: '¡Guardado con éxito!',
         agradecimiento: true,

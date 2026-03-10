@@ -16,11 +16,11 @@ app.use(session({
     saveUninitialized: false,
 }));
 
-const rutasUsers = require('./routes/user.routes')
-app.use('/user', rutasUsers);
+const routesUser = require('./routes/user.routes')
+app.use('/user', routesUser);
 
-const rutasMusica = require('./routes/songs.routes');
-app.use('/musica', rutasMusica);
+const routesSong = require('./routes/song.routes');
+app.use('/song', routesSong);
 
 app.use((error, request, response, next) => {
     response.status(500).send(`Error interno del servidor: ${error.stack}`);

@@ -3,10 +3,10 @@ const router = express.Router();
 
 const songsController = require ('../controllers/songs.controller')
 
-router.get('/lista', songsController.get_lista);
+router.get('/list', songsController.get_list);
 router.get('/new', songsController.get_new);
 router.post('/new', songsController.post_new);
-router.get('/detalle/:index', songsController.get_detalle);
-router.get('/gracias', songsController.get_gracias);
+router.get('/detail/:index', songsController.get_detail);
+router.get('/thanks', songsController.get_thanks);
 
 module.exports = router;

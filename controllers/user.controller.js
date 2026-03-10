@@ -6,7 +6,7 @@ exports.get_login = (req, res) => {
 
 exports.post_login = (req, res) => {
     req.session.username = req.body.username;
-    res.redirect('/musica/lista')
+    res.redirect('/song/list')
 }
 
 exports.get_logout = (req, res) => {
