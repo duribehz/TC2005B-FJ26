@@ -2,12 +2,15 @@
 const Song = require('../models/songs.model')
 
 exports.get_lista = (req, res) => {
-    const lista = Song.leerMusica();
-    res.render('list', { 
-        pagina: 'Mi Playlist',
-        canciones: lista 
+    Song.fetchAll().then(([rows, fieldData]) => {
+        return res.render ('list', 
+            {
+                pagina: 'Lista de canciones',
+                songs: rows,
+            });
+    }).catch((error) =>{
+        console.log(error)
     });
-    console.log(req.session.username)
 }
 
 exports.get_new = (req, res) => {

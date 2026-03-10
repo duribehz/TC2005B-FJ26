@@ -3,9 +3,9 @@
 <main>
     <h2>Mi Lista de Música Guardada</h2>
 
-    <% if (canciones.length > 0) { %>
+    <% if (songs.length > 0) { %>
         <ul>
-            <% canciones.forEach((cancion, index) => { %>
+            <% songS.forEach((cancion, index) => { %>
                 <li>
                     <%= cancion %>
                     - <a href="/musica/detalle/<%= index %>">ver detalles</a>
