@@ -9,6 +9,7 @@ exports.get_lista = (req, res) => {
                 songs: rows,
             });
     }).catch((error) =>{
+        next(error)
         console.log(error)
     });
 }

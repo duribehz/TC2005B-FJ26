@@ -22,6 +22,10 @@ app.use('/user', rutasUsers);
 const rutasMusica = require('./routes/songs.routes');
 app.use('/musica', rutasMusica);
 
+app.use((error, request, response, next) => {
+    response.status(500).send(`Error interno del servidor: ${error.stack}`);
+});
+
 app.use((request, response) => {
     response.status(404).render('new', {
         pagina: 'Error 404 - Ruta no encontrada',
@@ -30,6 +34,7 @@ app.use((request, response) => {
         error: true
     });
 });
+
 
 app.listen(4000, () => {
     console.log("Servidor corriendo en http://localhost:4000/user/login");
