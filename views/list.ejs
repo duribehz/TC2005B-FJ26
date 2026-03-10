@@ -1,13 +1,13 @@
 <%- include('includes/_header.ejs') %>
 
 <main>
-    <h2>Mi Lista de Música Guardada</h2>
+    <h2><%= pagina %></h2>
 
     <% if (songs.length > 0) { %>
         <ul>
-            <% songS.forEach((cancion, index) => { %>
+            <% songs.forEach((song, index) => { %>
                 <li>
-                    <%= cancion %>
+                    <%= song.title %>
                     - <a href="/musica/detalle/<%= index %>">ver detalles</a>
                 </li>
             <% }); %>

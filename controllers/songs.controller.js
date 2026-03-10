@@ -1,7 +1,7 @@
 
 const Song = require('../models/songs.model')
 
-exports.get_lista = (req, res) => {
+exports.get_lista = (req, res, next) => {
     Song.fetchAll().then(([rows, fieldData]) => {
         return res.render ('list', 
             {
@@ -33,16 +33,24 @@ exports.post_new = (req, res) => {
     }
 }
 
-exports.get_detalle = (req, res) => {
-    const lista = Song.leerMusica();
-    const cancion = lista[req.params.index];
-    res.render('new', {
-        pagina: cancion ? `Canción: ${cancion}` : 'No encontrada',
-        detalles: true,
-        agradecimiento: false,
-        error: !cancion
+exports.get_detalle = (req, res, next) => {
+    const id = (req.params.index) + 1;
+    console.log('ID recibido:', id);
+    Song.findById(id)
+    .then(([rows]) => {
+        console.log('Rows:', rows); 
+        const song = rows[0];
+        console.log('Song:', song); 
+        res.render('detail', {
+            pagina: 'Detalle de cancion',
+            song: song,
+        });
+    })
+    .catch((error) => {
+            next(error);
+            console.log(error);
     });
-}  
+}
 
 exports.get_gracias = (req, res) => {
     res.render('new', {
