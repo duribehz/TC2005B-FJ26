@@ -8,7 +8,7 @@
             <% songs.forEach((song, index) => { %>
                 <li>
                     <%= song.title %>
-                    - <a href="/song/detail/<%= index %>">ver detalles</a>
+                    - <a href="/song/detail/<%= song.song_id %>">ver detalles</a>
                 </li>
             <% }); %>
         </ul>

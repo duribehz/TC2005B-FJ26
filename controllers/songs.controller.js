@@ -1,6 +1,6 @@
 
 const Song = require('../models/songs.model')
-const Genre = require('../models/genre.model')
+const Genre = require('../models/genre.model');
 
 exports.get_list = (req, res, next) => {
     Song.fetchAll().then(([rows, fieldData]) => {
@@ -45,7 +45,8 @@ exports.post_new = (req, res) => {
 }
 
 exports.get_detail = (req, res, next) => {
-    const id = (req.params.index) + 1;
+    const id = (req.params.id);
+    console.log(req.params);
     console.log('ID recibido:', id);
     Song.findById(id)
     .then(([rows]) => {
