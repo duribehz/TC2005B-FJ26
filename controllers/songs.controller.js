@@ -3,7 +3,7 @@ const Song = require('../models/songs.model')
 const Genre = require('../models/genre.model');
 
 exports.get_list = (req, res, next) => {
-    Song.fetchAll().then(([rows, fieldData]) => {
+    Song.fetchAll().then(([rows]) => {
         return res.render ('list', 
             {
                 pagina: 'Lista de canciones',
@@ -17,7 +17,6 @@ exports.get_list = (req, res, next) => {
 
 exports.get_new = (req, res, next) => {
 Genre.fetchAll().then(([rows, fieldData]) => {
-    console.log(rows)
     return res.render ('form',
         {
             pagina: 'Agregar canciones',
@@ -29,7 +28,7 @@ Genre.fetchAll().then(([rows, fieldData]) => {
 });
 }
 
-exports.post_new = (req, res) => {    
+exports.post_new = (req, res, next) => {    
     const song = new Song(
         req.body.title,
         req.body.artist,
@@ -46,13 +45,9 @@ exports.post_new = (req, res) => {
 
 exports.get_detail = (req, res, next) => {
     const id = (req.params.id);
-    console.log(req.params);
-    console.log('ID recibido:', id);
     Song.findById(id)
     .then(([rows]) => {
-        console.log('Rows:', rows); 
         const song = rows[0];
-        console.log('Song:', song); 
         res.render('detail', {
             pagina: 'Detalle de cancion',
             song: song,
@@ -64,7 +59,40 @@ exports.get_detail = (req, res, next) => {
     });
 }
 
-exports.get_thanks = (req, res) => {
+exports.get_update = (req, res, next) => {
+    const id = (req.params.id);
+    Song.findById(id).then(([rows]) => {
+        const song = rows[0];
+        console.log(rows)
+        Genre.fetchAll()
+            .then(([genres]) => {
+                res.render('form-update', {
+                pagina: song.title,
+                song: song,
+                genres: genres,
+                    });
+                })
+    }
+    ).catch((error) => {
+        next(error);
+        console.log(error);
+    })
+}
+
+exports.post_update = (req, res, next) => {
+    const id = req.params.id;
+    const {title, artist, link, genre_id} = req.body;
+    Song.update(title, artist, link, genre_id, id)
+    .then(() => {
+        res.redirect(`/song/detail/${id}`);
+    })
+    .catch((error) => {
+        console.log(error);
+        next(error);
+    })
+}
+
+exports.get_thanks = (req, res, next) => {
     res.render('new', {
         pagina: '¡Guardado con éxito!',
         agradecimiento: true,

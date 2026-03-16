@@ -8,5 +8,7 @@ router.get('/new', songsController.get_new);
 router.post('/new', songsController.post_new);
 router.get('/detail/:id', songsController.get_detail);
 router.get('/thanks', songsController.get_thanks);
+router.get('/update/:id', songsController.get_update);
+router.post('/update/:id', songsController.post_update);
 
 module.exports = router;

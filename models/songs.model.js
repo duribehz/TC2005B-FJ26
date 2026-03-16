@@ -27,4 +27,11 @@ module.exports = class Song {
             WHERE songs.song_id = ?
         `, [id]);
     }
+
+    static update(title, artist, link, genre_id, id) {
+        return db.execute(
+            `UPDATE songs SET title=?, artist=?, link=?, genre_id=? WHERE song_id=?`,
+            [title, artist, link, genre_id, id]
+        );
+    }
 }

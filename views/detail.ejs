@@ -8,6 +8,7 @@
         <li><a href="<% song.link %>"><%= song.link %></a></li>
         <li><%= song.genre_name%></li>
     </ul>
+    <a href="/song/update/<%= song.song_id %>">Modificar</a>
 </main>
 
-<%- include ('includes/_footer.ejs') %>
+<%- include ('includes/_footer.ejs') %> 
