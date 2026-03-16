@@ -18,11 +18,8 @@ class User {
             });
     }
 
-    static findByName(name) {
-    return db.execute(
-        `SELECT * FROM users WHERE name = ?`,
-        [name]
-    );
+static findByName(username) {
+  return db.query('SELECT user_id, name, password, role FROM users WHERE name = ?', [username]);
 }
 }
 
