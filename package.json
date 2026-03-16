@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/DarioAUrb/TC2005B-FJ26#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
