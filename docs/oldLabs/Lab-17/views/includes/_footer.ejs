@@ -1,4 +1,9 @@
 <footer>
+    <strong>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo? </strong>
+    <p>Mentenmos una separación clara de responsabilidades,el modelo se encarga exclusivamente del acceso a datos. Esto hace el código más fácil de mantener, ya que si se necesita modificar una query o cambiar de base de datos, solo el modelo sin afectar el resto de la aplicación. Además, evita duplicar código SQL en multiples partes del proyecto, ya que varios controladores pueden reutilizar los mismos métodos del modelo.</p>
+    <br><br>
+    <strong>¿Qué es SQL injection y cómo se puede prevenir?</strong>
+    <p>SQL injection es un ataque donde un usuario introduce codigo SQL en un campo de entrada para manipular las queries que ejecuta el servidor, pudiendo acceder, modificar o eliminar datos sin autorización. La forma más efectiva de prevenirlo es usando queries parametrizadas con placeholders (?), ya que el driver de la base de datos trata el valor del usuario como dato puro y nunca lo interpreta como SQL ejecutable.</p>
     <p>&copy; 2025 - Mi App de Música</p>
 </footer>
 </body>
