@@ -1,0 +1,20 @@
+<%- include('includes/_header.ejs') %>
+
+<main>
+    <h2><%= pagina %></h2>
+
+    <% if (songs.length > 0) { %>
+        <ul>
+            <% songs.forEach((song, index) => { %>
+                <li>
+                    <%= song.title %>
+                    - <a href="/song/detail/<%= song.song_id %>">ver detalles</a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No hay canciones en tu lista todavía. ¡<a href="/song/new">Añade una</a>!</p>
+    <% } %>
+</main>
+
+<%- include('includes/_footer.ejs') %>

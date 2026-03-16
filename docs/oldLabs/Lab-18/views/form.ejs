@@ -1,0 +1,32 @@
+
+
+<form action="/song/new" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
+    <label>Título</label>
+    <input type="text" name="title" />
+
+    <label>Artista</label>
+    <input type="text" name="artist" />
+
+    <label>Link</label>
+    <input type="text" name="link" />
+
+    <label>Género</label>
+    <% genres.forEach(genre => { %>
+        <div>
+            <input 
+                type="radio" 
+                name="genre_id" 
+                value="<%= genre.genre_id %>" 
+                id="genre-<%= genre.genre_id %>"
+            />
+            <label for="genre-<%= genre.genre_id %>">
+                <%= genre.name %>
+            </label>
+        </div>
+    <% }) %>
+
+    <button type="submit">Guardar</button>
+
+</form>

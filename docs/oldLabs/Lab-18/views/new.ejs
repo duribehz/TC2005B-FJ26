@@ -1,0 +1,15 @@
+<%- include('includes/_header.ejs') %>
+
+
+<% if (error) { %>
+    <p style="color: red;">Lo sentimos, esta página o canción no existe.</p>
+<% } else if (agradecimiento) { %>
+    <p>Gracias por tu aporte a la cultura musical.</p>
+    <a href="/song/list">Volver a la lista</a>
+<% } else if (detalles) { %>
+    <p>Información detallada del archivo local.</p>
+<% } else { %>
+    <%- include('includes/_form.ejs') %>
+<% } %>
+
+<%- include('includes/_footer.ejs') %>
