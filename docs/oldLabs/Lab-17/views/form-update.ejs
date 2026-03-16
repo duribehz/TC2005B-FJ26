@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pagina %></title>
+</head>
+<body>
+
+    <h1><%= pagina %></h1>
+
+    <form action="/song/update/<%= song.song_id %>" method="POST">
+
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" value="<%= song.title %>" required />
+
+        <br>
+
+        <label for="artist">Artista</label>
+        <input type="text" id="artist" name="artist" value="<%= song.artist %>" required />
+
+        <br>
+
+            <label for="genre_id">Género</label>
+            <select id="genre_id" name="genre_id">
+                <% genres.forEach(genre => { %>
+                    <option 
+                        value="<%= genre.genre_id %>"
+                        <%= genre.genre_id === song.genre_id ? 'selected' : '' %>
+                    >
+                        <%= genre.name %>
+                    </option>
+                <% }) %>
+            </select>
+
+        <br>
+
+
+        <label for="link">Link</label>
+        <input type="url" id="link" name="link" value="<%= song.link %>" />
+
+        <br>
+
+        <button type="submit">Guardar cambios</button>
+        <a href="/songs/detail/<%= song.song_id %>">Cancelar</a>
+
+    </form>
+
+</body>
+</html>
