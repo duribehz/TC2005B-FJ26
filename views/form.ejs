@@ -1,6 +1,7 @@
 
 
 <form action="/song/new" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
 
     <label>Título</label>
     <input type="text" name="title" />

@@ -12,7 +12,6 @@ exports.post_login = (req, res, next) => {
 
     User.findByName(username)
         .then(([rows]) => {
-            console.log('Rows encontrados:', rows);
             if (rows.length === 0) {
             }
             const user = rows[0];
