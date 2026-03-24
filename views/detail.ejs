@@ -5,7 +5,7 @@
     <h2><%= song.name %></h2>
     <ul>
         <li><%= song.artist %></li>
-        <li><a href="<% song.link %>"><%= song.link %></a></li>
+        <li><a href="<%= song.link %>"><%= song.link %></a></li>
         <li><%= song.genre_name%></li>
     </ul>
     <a href="/song/update/<%= song.song_id %>">Modificar</a>

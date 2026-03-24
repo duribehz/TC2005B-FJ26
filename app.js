@@ -35,10 +35,8 @@ app.use((error, request, response, next) => {
 });
 
 app.use((request, response) => {
-    response.status(404).render('new', {
+    response.status(404).render('error', {
         pagina: 'Error 404 - Ruta no encontrada',
-        detalles: false,
-        agradecimiento: false,
         error: true
     });
 });

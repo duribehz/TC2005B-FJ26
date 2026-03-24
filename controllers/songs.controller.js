@@ -17,7 +17,7 @@ exports.get_list = (req, res, next) => {
 
 exports.get_new = (req, res, next) => {
 Genre.fetchAll().then(([rows, fieldData]) => {
-    return res.render ('form',
+    return res.render ('form-new',
         {
             pagina: 'Agregar canciones',
             genres: rows
