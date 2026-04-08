@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node --watch app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:start": "docker compose -f infra/containers/mariadb/docker-compose.yml -p tc2005b-fj26 up -d",
+    "db:stop": "docker compose -f infra/containers/mariadb/docker-compose.yml -p tc2005b-fj26 down"
   },
   "repository": {
     "type": "git",
