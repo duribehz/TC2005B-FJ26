@@ -10,27 +10,27 @@ module.exports = class Song {
 
     save() {
         return db.execute(
-            'INSERT INTO songs (title, artist, link, genre_id) values (?, ?, ?, ?)',
+            'INSERT INTO song (title, artist, link, genre_id) values (?, ?, ?, ?)',
             [this.title, this.artist, this.link, this.genre_id]
         );
     }
 
     static fetchAll() {
-        return db.execute('SELECT * FROM songs');
+        return db.execute('SELECT * FROM song');
     }
 
     static findById(id) {
         return db.execute(`
-            SELECT songs.*, genres.name AS genre_name
-            FROM songs
-            JOIN genres ON songs.genre_id = genres.genre_id
-            WHERE songs.song_id = ?
+            SELECT song.*, genre.name AS genre_name
+            FROM song
+            JOIN genre ON song.genre_id = genre.genre_id
+            WHERE song.song_id = ?
         `, [id]);
     }
 
     static update(title, artist, link, genre_id, id) {
         return db.execute(
-            `UPDATE songs SET title=?, artist=?, link=?, genre_id=? WHERE song_id=?`,
+            `UPDATE song SET title=?, artist=?, link=?, genre_id=? WHERE song_id=?`,
             [title, artist, link, genre_id, id]
         );
     }

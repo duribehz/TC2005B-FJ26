@@ -12,14 +12,14 @@ class User {
         return bcrypt.hash(password, 12)
             .then((hashedPassword) => {
                 return db.execute(
-                    `INSERT INTO users (name, password) VALUES (?, ?)`,
+                    `INSERT INTO user (name, password) VALUES (?, ?)`,
                     [name, hashedPassword]
                 );
             });
     }
 
 static findByName(username) {
-  return db.query('SELECT user_id, name, password, role FROM users WHERE name = ?', [username]);
+  return db.query('SELECT user_id, name, password, role FROM user WHERE name = ?', [username]);
 }
 }
 
