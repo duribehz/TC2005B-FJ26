@@ -3,10 +3,6 @@
 
 <p>¿Quieres borrar este elemento?</p>
 
-<% if (error) { %>
-    <p style="color: red;"><%= message %></p>
-<% } %>
-
 <form action="/song/<%= song.song_id %>?_method=DELETE" method="POST">
     <button type="submit" style="background-color:red; color:white;">
         Sí, borrar

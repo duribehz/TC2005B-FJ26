@@ -102,6 +102,15 @@ exports.get_thanks = (req, res, next) => {
 }
 
 exports.get_delete = (req, res, next) => {
-    const id = Song.findById(req.params.id);
-    res.render('delete', )
+    const id = req.params.id;
+    Song.findById(id)
+    .then(([rows]) => {
+        const song = rows[0];
+        res.render('delete', {
+            song: song,
+        });
+    }).catch ((error) => {
+        console.log(error);
+        next(error);
+    })
 }
