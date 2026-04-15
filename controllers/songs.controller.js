@@ -100,3 +100,8 @@ exports.get_thanks = (req, res, next) => {
         error: false
     });
 }
+
+exports.get_delete = (req, res, next) => {
+    const id = Song.findById(req.params.id);
+    res.render('delete', )
+}
