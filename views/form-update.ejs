@@ -10,7 +10,6 @@
     <h1><%= pagina %></h1>
 
     <form action="/song/update/<%= song.song_id %>" method="POST">
-        <% if (user && user.role === 'admin') { %>
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
 
         <label for="title">Título</label>
@@ -45,7 +44,6 @@
 
         <button type="submit">Guardar cambios</button>
         <a href="/songs/detail/<%= song.song_id %>">Cancelar</a>
-   <% } %>
     </form>
 
 </body>

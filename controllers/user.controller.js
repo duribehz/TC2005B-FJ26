@@ -13,6 +13,7 @@ exports.post_login = (req, res, next) => {
     User.findByName(username)
         .then(([rows]) => {
             if (rows.length === 0) {
+                return res.redirect('/user/login');
             }
             const user = rows[0];
             return bcrypt.compare(password, user.password)
@@ -25,7 +26,7 @@ exports.post_login = (req, res, next) => {
                             res.redirect('/song/list');
                         });
                     }
-                    res.redirect('/login');
+                    res.redirect('/user/login');
                 });
         })
         .catch(error => {

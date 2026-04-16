@@ -2,7 +2,6 @@
 
 <form action="/song/new" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
-    <% if (user && user.role === 'admin') { %>
     <label>Título</label>
     <input type="text" name="title" />
 
@@ -27,6 +26,5 @@
         </div>
     <% }) %>
         <button type="submit">Guardar</button>
-    <% } %>
 
 </form>

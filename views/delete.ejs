@@ -1,0 +1,23 @@
+
+<h2>Confirmación de eliminación</h2>
+
+<p>¿Quieres borrar este elemento?</p>
+
+<form action="/song/delete/<%= song.song_id %>?_method=DELETE" method="POST">
+<input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
+    <button type="submit" style="background-color:red; color:white;">
+        Sí, borrar
+    </button>
+</form>
+
+<h2><%= song.name %></h2>
+<ul>
+    <li><%= song.artist %></li>
+    <li><a href="<%= song.link %>"><%= song.link %></a></li>
+    <li><%= song.genre_name%></li>
+</ul>
+
+<a href="/song/detail/<%= song.song_id %>">
+    <button type="button">Cancelar</button>
+</a>

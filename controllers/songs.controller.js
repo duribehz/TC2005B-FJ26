@@ -17,7 +17,7 @@ exports.get_list = (req, res, next) => {
 
 exports.get_new = (req, res, next) => {
 Genre.fetchAll().then(([rows, fieldData]) => {
-    return res.render ('form',
+    return res.render ('form-new',
         {
             pagina: 'Agregar canciones',
             genres: rows
@@ -99,4 +99,29 @@ exports.get_thanks = (req, res, next) => {
         detalles: false,
         error: false
     });
+}
+
+exports.get_delete = (req, res, next) => {
+    const id = req.params.id;
+    Song.findById(id)
+    .then(([rows]) => {
+        const song = rows[0];
+        res.render('delete', {
+            song: song,
+        });
+    }).catch ((error) => {
+        console.log(error);
+        next(error);
+    })
+}
+
+exports.delete_song = (req, res, next) => {
+    const id  = req.params.id;
+    Song.delete(id).then(() => {
+        res.redirect('/song/list');
+    }  
+    ).catch ((error) => {
+        console.log(error);
+        next(error);
+    })
 }
