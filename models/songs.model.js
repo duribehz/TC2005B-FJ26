@@ -34,4 +34,10 @@ module.exports = class Song {
             [title, artist, link, genre_id, id]
         );
     }
+
+    static delete(id) {
+        return db.execute(
+            `DELETE FROM song WHERE song.song_id = ? `
+            , [id]);
+    }
 }

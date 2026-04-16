@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const methodOverride = require('method-override');
 const app = express();
 const session = require('express-session');
 const csrf = require('csurf');
@@ -9,6 +10,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views'); 
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
@@ -21,6 +23,11 @@ const csrfProtection = csrf();
 app.use(csrfProtection); 
 app.use((request, response, next) => {
     response.locals.csrfToken = request.csrfToken();
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('Método:', req.method, '| URL:', req.url);
     next();
 });
 

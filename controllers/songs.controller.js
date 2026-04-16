@@ -114,3 +114,14 @@ exports.get_delete = (req, res, next) => {
         next(error);
     })
 }
+
+exports.delete_song = (req, res, next) => {
+    const id  = req.params.id;
+    Song.delete(id).then(() => {
+        res.redirect('/song/list');
+    }  
+    ).catch ((error) => {
+        console.log(error);
+        next(error);
+    })
+}

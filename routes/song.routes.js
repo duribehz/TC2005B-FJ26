@@ -12,6 +12,6 @@ router.get('/thanks', isAuth, songsController.get_thanks);
 router.get('/update/:id', isAuth, isAdmin,songsController.get_update);
 router.post('/update/:id', isAuth, isAdmin,songsController.post_update);
 router.get('/delete/:id', isAuth, isAdmin, songsController.get_delete);
-router.delete('/delete/:id', isAuth, isAdmin, )
+router.delete('/delete/:id', isAuth, isAdmin, songsController.delete_song);
 
 module.exports = router;
