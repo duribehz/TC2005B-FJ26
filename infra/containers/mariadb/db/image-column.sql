@@ -1,0 +1,2 @@
+ALTER TABLE song
+ADD COLUMN image VARCHAR(255);
