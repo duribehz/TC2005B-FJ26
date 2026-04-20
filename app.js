@@ -5,6 +5,20 @@ const methodOverride = require('method-override');
 const app = express();
 const session = require('express-session');
 const csrf = require('csurf');
+const multer = require('multer');
+
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        callback(null, 'public/uploads');
+    },
+    filename: (request, file, callback) => {
+        callback(null, new Date().getMilliseconds() + '-' + file.originalname);
+    },
+});
+
+app.use(multer({ storage: fileStorage }).single('imagen')); 
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', 'views'); 
