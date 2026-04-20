@@ -1,23 +1,69 @@
+<meta name="csrf-token" content="<%= csrfToken %>">
+<main>
+  <h2>Confirmación de eliminación</h2>
+  <p>¿Quieres borrar este elemento?</p>
 
-<h2>Confirmación de eliminación</h2>
+  <button data-id="<%= song.song_id %>" onclick="deleteSong(this)" style="background-color:red; color:white;">
+    Sí, borrar
+  </button>
 
-<p>¿Quieres borrar este elemento?</p>
-
-<form action="/song/delete/<%= song.song_id %>?_method=DELETE" method="POST">
-<input type="hidden" name="_csrf" value="<%= csrfToken %>" >
-
-    <button type="submit" style="background-color:red; color:white;">
-        Sí, borrar
-    </button>
-</form>
-
-<h2><%= song.name %></h2>
-<ul>
+  <h2><%= song.name %></h2>
+  <ul>
     <li><%= song.artist %></li>
     <li><a href="<%= song.link %>"><%= song.link %></a></li>
-    <li><%= song.genre_name%></li>
-</ul>
+    <li><%= song.genre_name %></li>
+  </ul>
 
-<a href="/song/detail/<%= song.song_id %>">
+  <a href="/song/detail/<%= song.song_id %>">
     <button type="button">Cancelar</button>
-</a>
+  </a>
+
+  <hr>
+
+  <h2>Preguntas</h2>
+
+  <h3>¿Qué importancia tiene AJAX en el desarrollo de RIAs?</h3>
+  <p>
+    AJAX permite actualizar partes de la página sin recargarla completa, lo que da una experiencia
+    más fluida y cercana a una aplicación de escritorio. Sin AJAX, cada acción del usuario
+    requeriría una recarga completa, haciendo la app lenta. En esta página, el botón de eliminar
+    usa AJAX para borrar la canción y redirigir sin usar un form tradicional.
+  </p>
+
+  <h3>¿Qué implicaciones de seguridad tiene AJAX? ¿Del cliente o del servidor?</h3>
+  <p>
+    Las validaciones siempre deben hacerse del lado del servidor. El cliente puede validar
+    para mejorar la experiencia del usuario, pero nunca como única medida de seguridad porque
+    cualquiera puede manipular el JavaScript desde el navegador. Los riesgos más comunes con
+    AJAX son XSS (inyección de scripts maliciosos) y CSRF (peticiones falsas en nombre del usuario).
+  </p>
+
+  <h3>¿Qué es JSON?</h3>
+  <p>
+    Es un formato de texto para intercambiar datos entre el cliente y el servidor. Es el estándar
+    en AJAX porque es ligero y JavaScript lo puede leer y escribir de forma nativa. En lugar de
+    recibir HTML completo del servidor, se reciben solo los datos necesarios:
+  </p>
+  <pre>{ "song_id": 1, "title": "Bohemian Rhapsody", "artist": "Queen" }</pre>
+
+</main>
+
+<script>
+  function deleteSong(btn) {
+    const id = btn.getAttribute('data-id');
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    fetch('/song/delete/' + id, {
+      method: 'DELETE',
+      headers: {
+        'CSRF-Token': token
+      }
+    })
+    .then(res => {
+      if (res.ok) {
+        window.location.href = '/song/list';
+      }
+    });
+  }
+</script>
+
