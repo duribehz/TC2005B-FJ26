@@ -1,0 +1,26 @@
+@startuml
+[*] --> Spawning
+
+Spawning --> Falling : aparece pieza
+
+Falling --> MovingLeft : tecla izquierda
+MovingLeft --> Falling : suelta tecla
+
+Falling --> MovingRight : tecla derecha
+MovingRight --> Falling : suelta tecla
+
+Falling --> Rotating : tecla rotar
+Rotating --> Falling : rotación aplicada
+
+Falling --> FastDrop : tecla abajo
+FastDrop --> Falling : suelta tecla
+
+Falling --> HardDrop : tecla espacio
+HardDrop --> Locked : impacto inmediato
+
+Falling --> Locked : colisión con fondo/otra pieza
+
+Locked --> Clearing : verificar líneas
+Clearing --> Spawning : nueva pieza
+
+@enduml

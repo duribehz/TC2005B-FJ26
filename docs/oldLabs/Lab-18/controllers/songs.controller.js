@@ -17,7 +17,7 @@ exports.get_list = (req, res, next) => {
 
 exports.get_new = (req, res, next) => {
 Genre.fetchAll().then(([rows, fieldData]) => {
-    return res.render ('form-new',
+    return res.render ('form',
         {
             pagina: 'Agregar canciones',
             genres: rows
@@ -28,22 +28,20 @@ Genre.fetchAll().then(([rows, fieldData]) => {
 });
 }
 
-exports.post_new = (req, res, next) => {
-  const song = new Song(
-    req.body.title,
-    req.body.artist,
-    req.body.link,
-    req.body.genre_id,
-    req.file ? req.file.filename : null 
-  );
-
-  song.save()
-    .then(() => res.redirect('/song/thanks'))
-    .catch((error) => {
-      console.log(error);
-      next(error);
-    });
-};
+exports.post_new = (req, res, next) => {    
+    const song = new Song(
+        req.body.title,
+        req.body.artist,
+        req.body.link,
+        req.body.genre_id
+    )
+    song.save().then(() => {
+        return res.redirect('/song/thanks');
+    }).catch((error) => {
+        next(error);
+        console.log(error);
+    })
+}
 
 exports.get_detail = (req, res, next) => {
     const id = (req.params.id);
@@ -101,29 +99,4 @@ exports.get_thanks = (req, res, next) => {
         detalles: false,
         error: false
     });
-}
-
-exports.get_delete = (req, res, next) => {
-    const id = req.params.id;
-    Song.findById(id)
-    .then(([rows]) => {
-        const song = rows[0];
-        res.render('delete', {
-            song: song,
-        });
-    }).catch ((error) => {
-        console.log(error);
-        next(error);
-    })
-}
-
-exports.delete_song = (req, res, next) => {
-    const id  = req.params.id;
-    Song.delete(id).then(() => {
-        res.redirect('/song/list');
-    }  
-    ).catch ((error) => {
-        console.log(error);
-        next(error);
-    })
 }
