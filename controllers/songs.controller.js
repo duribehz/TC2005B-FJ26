@@ -28,20 +28,22 @@ Genre.fetchAll().then(([rows, fieldData]) => {
 });
 }
 
-exports.post_new = (req, res, next) => {    
-    const song = new Song(
-        req.body.title,
-        req.body.artist,
-        req.body.link,
-        req.body.genre_id
-    )
-    song.save().then(() => {
-        return res.redirect('/song/thanks');
-    }).catch((error) => {
-        next(error);
-        console.log(error);
-    })
-}
+exports.post_new = (req, res, next) => {
+  const song = new Song(
+    req.body.title,
+    req.body.artist,
+    req.body.link,
+    req.body.genre_id,
+    req.file ? req.file.filename : null 
+  );
+
+  song.save()
+    .then(() => res.redirect('/song/thanks'))
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
+};
 
 exports.get_detail = (req, res, next) => {
     const id = (req.params.id);

@@ -1,17 +1,18 @@
 const db = require('../util/database')
 
 module.exports = class Song {
-    constructor(title, artist, link, genre_id){
+    constructor(title, artist, link, genre_id, image){
         this.title = title;
         this.artist = artist;
         this.link = link;
         this.genre_id = genre_id;
+        this.image = image;
     }
 
     save() {
         return db.execute(
-            'INSERT INTO song (title, artist, link, genre_id) values (?, ?, ?, ?)',
-            [this.title, this.artist, this.link, this.genre_id]
+            'INSERT INTO song (title, artist, link, genre_id, image) values (?, ?, ?, ?, ?)',
+            [this.title, this.artist, this.link, this.genre_id, this.image]
         );
     }
 
@@ -28,7 +29,7 @@ module.exports = class Song {
         `, [id]);
     }
 
-    static update(title, artist, link, genre_id, id) {
+    static update(title, artist, link, genre_id, id, image) {
         return db.execute(
             `UPDATE song SET title=?, artist=?, link=?, genre_id=? WHERE song_id=?`,
             [title, artist, link, genre_id, id]
