@@ -2,21 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const methodOverride = require('method-override');
-const app = express();
 const session = require('express-session');
 const csrf = require('csurf');
-const multer = require('multer');
-
-const fileStorage = multer.diskStorage({
-  destination: (request, file, callback) => {
-    callback(null, 'public/uploads');
-  },
-  filename: (request, file, callback) => {
-    callback(null, new Date().getMilliseconds() + '-' + file.originalname);
-  },
-});
-
-const upload = multer({ storage: fileStorage });
+const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -29,25 +17,18 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-
-const csrfProtection = csrf();
-app.use(csrfProtection);
-
-app.use((request, response, next) => {
-  response.locals.csrfToken = request.csrfToken();
+app.use(csrf());
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
   next();
 });
-
 app.use((req, res, next) => {
   console.log('Método:', req.method, '| URL:', req.url);
   next();
 });
 
-module.exports.upload = upload;
-
 const routesUser = require('./routes/user.routes');
 app.use('/user', routesUser);
-
 const routesSong = require('./routes/song.routes');
 app.use('/song', routesSong);
 
@@ -59,9 +40,8 @@ app.use((error, req, res, next) => {
     message: error.message,
   });
 });
-
-app.use((request, response) => {
-  response.status(404).render('error', {
+app.use((req, res) => {
+  res.status(404).render('error', {
     pagina: 'Error 404 - Ruta no encontrada',
     detalles: false,
     error: true,
