@@ -1,7 +1,6 @@
-
-
-<form action="/song/new" method="POST">
+<form action="/song/new" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
     <label>Título</label>
     <input type="text" name="title" />
 
@@ -25,6 +24,9 @@
             </label>
         </div>
     <% }) %>
-        <button type="submit">Guardar</button>
 
+    <label>Imagen</label>
+    <input type="file" name="image" accept="image/*" />
+
+    <button type="submit">Guardar</button>
 </form>

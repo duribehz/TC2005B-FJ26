@@ -33,7 +33,8 @@ exports.post_new = (req, res, next) => {
         req.body.title,
         req.body.artist,
         req.body.link,
-        req.body.genre_id
+        req.body.genre_id,
+        req.body.image
     )
     song.save().then(() => {
         return res.redirect('/song/thanks');
