@@ -1,19 +1,58 @@
-<form action="/user/login" method="POST">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
-    <div class="field">
-        <label for="username" class="label">Nombre de usuario</label>
-        <div class="control">
-            <input id="username" name="username" class="input" type="text" placeholder="e.g Dario1234" required>
+<%- include('includes/_header.ejs') %>
+
+<section class="hero is-fullheight" style="background: linear-gradient(135deg, #0d0d0d, #1a1a2e);">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-4">
+
+          <div class="has-text-centered mb-6">
+            <p style="font-size: 4rem;">🎵</p>
+            <h1 class="title has-text-white is-2">Bienvenido</h1>
+            <p class="subtitle has-text-grey-light">Inicia sesión para continuar</p>
+          </div>
+
+          <div class="box" style="background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #ffffff22; border-radius: 16px;">
+            <form action="/user/login" method="POST">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+              <div class="field">
+                <label for="username" class="label has-text-white">Nombre de usuario</label>
+                <div class="control has-icons-left">
+                  <input id="username" name="username" class="input" type="text" placeholder="e.g Dario1234" required
+                    style="background: #0d0d0d; border-color: #ffffff33; color: white;">
+                  <span class="icon is-left has-text-grey">👤</span>
+                </div>
+              </div>
+
+              <div class="field mt-4">
+                <label for="password" class="label has-text-white">Contraseña</label>
+                <div class="control has-icons-left">
+                  <input id="password" name="password" class="input" type="password" required
+                    style="background: #0d0d0d; border-color: #ffffff33; color: white;">
+                  <span class="icon is-left has-text-grey">🔒</span>
+                </div>
+              </div>
+
+              <div class="field mt-5">
+                <button class="button is-warning is-fullwidth is-rounded is-medium" type="submit">
+                  Entrar
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="has-text-centered mt-4">
+            <p class="has-text-grey-light">¿No tienes cuenta?
+              <a href="/user/signup" class="has-text-warning">Crear cuenta</a>
+            </p>
+          </div>
+
         </div>
+      </div>
     </div>
-    <div class="field">
-        <label for="password" class="label">Password</label>
-        <div class="control">
-            <input id="password" name="password" class="input" type="password" required>
-        </div>
-    </div>
-    <input class="button is-primary" type="submit" value="Entrar">
-</form> 
-<h3>No tienes cuenta?</h3>
-<a href="/user/signup">Crear cuenta</a>
+  </div>
+</section>
+
 <%- include('includes/_footer') %>
