@@ -1,20 +1,61 @@
 <%- include('includes/_header.ejs') %>
+<main class="section" style="background-color: #0d0d0d; min-height: 100vh;">
+  <div class="container">
 
-<main>
-    <h2><%= pagina %></h2>
+    <div class="has-text-centered mb-6">
+      <h2 class="title has-text-white is-2"><%= pagina %></h2>
+      <p class="subtitle has-text-grey-light">Tu colección de canciones</p>
+      <a href="/song/new" class="button is-warning is-rounded is-medium mt-3">
+        <span class="icon">➕</span>
+        <span>Nueva canción</span>
+      </a>
+    </div>
 
     <% if (songs.length > 0) { %>
-        <ul>
-            <% songs.forEach((song, index) => { %>
-                <li>
-                    <%= song.title %>
-                    - <a href="/song/detail/<%= song.song_id %>">ver detalles</a>
-                </li>
-            <% }); %>
-        </ul>
-    <% } else { %>
-        <p>No hay canciones en tu lista todavía. ¡<a href="/song/new">Añade una</a>!</p>
-    <% } %>
-</main>
+      <div class="columns is-multiline">
+        <% songs.forEach((song) => { %>
+          <div class="column is-one-third">
+            <div class="card" style="background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #ffffff22; border-radius: 16px; transition: transform 0.2s;" 
+                 onmouseover="this.style.transform='translateY(-6px)'" 
+                 onmouseout="this.style.transform='translateY(0)'">
 
+              <% if (song.image) { %>
+                <div class="card-image">
+                  <figure class="image is-16by9">
+                    <img src="/uploads/<%= song.image %>" alt="<%= song.title %>" style="border-radius: 16px 16px 0 0; object-fit: cover;">
+                  </figure>
+                </div>
+              <% } else { %>
+                <div style="height: 120px; background: linear-gradient(135deg, #f5a623, #f76b1c); border-radius: 16px 16px 0 0; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 3rem;">🎵</span>
+                </div>
+              <% } %>
+
+              <div class="card-content">
+                <p class="title is-5 has-text-white mb-1"><%= song.title %></p>
+                <p class="subtitle is-6 has-text-grey-light mb-3"><%= song.artist %></p>
+                <span class="tag is-warning is-light is-rounded"><%= song.genre_name || 'Sin género' %></span>
+              </div>
+
+              <footer class="card-footer" style="border-top: 1px solid #ffffff22;">
+                <a href="/song/detail/<%= song.song_id %>" class="card-footer-item has-text-warning">
+                  Ver detalles →
+                </a>
+              </footer>
+
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="has-text-centered mt-6">
+        <p style="font-size: 5rem;">🎶</p>
+        <p class="title has-text-white">No hay canciones todavía</p>
+        <p class="subtitle has-text-grey-light">Empieza añadiendo tu primera canción</p>
+        <a href="/song/new" class="button is-warning is-rounded is-large mt-4">Añadir canción</a>
+      </div>
+    <% } %>
+
+  </div>
+</main>
 <%- include('includes/_footer.ejs') %>
