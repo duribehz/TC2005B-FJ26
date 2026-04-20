@@ -104,26 +104,23 @@ exports.get_thanks = (req, res, next) => {
 }
 
 exports.get_delete = (req, res, next) => {
-    const id = req.params.id;
-    Song.findById(id)
+  const id = req.params.id;
+  Song.findById(id)
     .then(([rows]) => {
-        const song = rows[0];
-        res.render('delete', {
-            song: song,
-        });
-    }).catch ((error) => {
-        console.log(error);
-        next(error);
-    })
+      const song = rows[0][0];
+      res.render('delete', { song: song });
+    }).catch((error) => {
+      console.log(error);
+      next(error);
+    });
 }
 
 exports.delete_song = (req, res, next) => {
-    const id  = req.params.id;
-    Song.delete(id).then(() => {
-        res.redirect('/song/list');
-    }  
-    ).catch ((error) => {
-        console.log(error);
-        next(error);
-    })
+  const id = req.params.id;
+  Song.delete(id)
+    .then(() => res.sendStatus(200))
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
 }
