@@ -6,6 +6,8 @@ const session = require('express-session');
 const csrf = require('csurf');
 const app = express();
 
+const csrfProtection = csrf();
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,11 +19,22 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-app.use(csrf());
+
 app.use((req, res, next) => {
-  res.locals.csrfToken = req.csrfToken();
+  const contentType = req.headers['content-type'] || '';
+  if (contentType.includes('multipart/form-data')) {
+    return next();
+  }
+  csrfProtection(req, res, next);
+});
+
+app.use((req, res, next) => {
+  if (req.csrfToken) {
+    res.locals.csrfToken = req.csrfToken();
+  }
   next();
 });
+
 app.use((req, res, next) => {
   console.log('Método:', req.method, '| URL:', req.url);
   next();
@@ -40,6 +53,7 @@ app.use((error, req, res, next) => {
     message: error.message,
   });
 });
+
 app.use((req, res) => {
   res.status(404).render('error', {
     pagina: 'Error 404 - Ruta no encontrada',
